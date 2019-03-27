@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>asflbahgdgfkjkaflgakgalfbh</p>
+
+
+
+<table>
+   <tr th:each="result:${empList}">
+        <td th:text="${result.getFirstName()}">
+
+        </td>
+    </tr>
+</table>
+<div th:include="HeaderAndFooter::footer"/>
+</body>
+</html>

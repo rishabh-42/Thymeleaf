@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <script>
+        $(document).ready(
+
+           function () {
+console.log("Button Clicked");
+               $("#ServerTime").click(function () {
+
+
+                   var time = $.ajax({
+
+                       url: "/getTime",
+                       method: "GET"
+                   });
+                   time.done(function (data) {
+                       if(data) {
+                           $("body").append("<p>" + data + "</p>");
+                       }
+
+                   })
+                   
+                   time.fail(function (jqHXR,status) {
+                       console.log("some error occured");
+                       
+                   })
+
+
+
+               })
+           }
+
+        );
+    </script>
+
+</head>
+
+<body>
+
+<button id="ServerTime"> Get Server Time</button>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <style type="text/css">
+
+        .odd{
+            background-color: red ;
+        }
+
+    </style>
+</head>
+<body th:with="var=${user}">
+
+<table>
+
+
+    <tr>
+        <th>Name</th>
+        <th>Role</th>
+    </tr>
+    <tr th:each="prod, iterStat : ${var}" class="row" th:classappend="${iterStat.odd}? 'odd'">
+        <td th:text="${prod.name}">.</td>
+
+        <td th:text="${prod.role}">.</td>
+    </tr>
+</table>
+
+</body>
+</html>

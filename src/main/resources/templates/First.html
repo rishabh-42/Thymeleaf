@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>First</title>
+
+  <!--<script th:src="@{/first.js}" type="text/javascript"></script>-->
+    <div th:include="HeaderAndFooter::header"/>
+
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+
+</head>
+
+<body>
+<!--<h1 th:text="${name}"></h1>-->
+
+<!--<h1 th:if="${1==1}">-->
+    <!--1==1-->
+<!--</h1>-->
+
+
+<!--<h1 th:if="${1==2}">-->
+    <!--1==1-->
+<!--</h1>-->
+
+<button  id="button-alert" onclick="myFunction()">Click here for answer 1 </button>
+
+
+
+<div th:include="HeaderAndFooter::footer"/>
+</body>
+</html>
