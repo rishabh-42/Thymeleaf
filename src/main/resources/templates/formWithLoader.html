@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<div th:include="HeaderAndFooter::header"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        console.log("dsa");
+
+        $("body").on("submit", "#formSubmit", function (e) {
+            e.preventDefault();
+
+
+            console.log("loader called");
+
+            var firstName = $("#firstname").val();
+            var lastName = $("#lastname").val();
+
+            console.log(firstName);
+
+            $("div").css("display", "block");
+
+            $.ajax({
+
+                url: "/formLoad",
+                method: "post",
+                data: {"firstName": firstName, "lastName": lastName},
+                success: function () {
+
+                    $("div").css("display", "none");
+
+                },
+                failure: function () {
+                    console.log("failed");
+
+                }
+
+
+            });
+        })
+
+    });
+
+
+</script>
+<body>
+
+
+<form method="post" id="formSubmit">
+
+    <input type="text" name="firstName" placeholder="first name" id="firstname">
+    <input type="text" name="lastName" placeholder="last name" id="lastname">
+    <input type="submit" value="submit">
+
+</form>
+
+<div style="display: none">
+    <img src="https://i.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.webp">
+</div>
+
+<div th:include="HeaderAndFooter::footer"/>
+</body>
+</html>
